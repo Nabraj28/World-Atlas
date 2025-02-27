@@ -1,0 +1,65 @@
+.errorContainer{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./Space.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    background-position: center top;
+    z-index: 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+.contentContainer{
+  height: 50%;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contentMediumText{
+  font-family: 'ExoMedium',sans-serif;
+  font-size: 50px;
+  color: #fff;
+}
+
+.contentLightText{
+  font-family: 'ExoLight',sans-serif;
+  font-size: 30px;
+  color: #fff;
+}
+
+.goHomeButton{
+  background-color: transparent;
+  border: 0.5px solid white;
+  padding: 8px;
+  border-radius: 5px;
+  font-family: 'ExoLight',sans-serif;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+@media (min-width: 768px) {
+    .contentContainer {
+      justify-content: center;
+    }
+  }
+
+@media (max-width: 768px) {
+    .contentMediumText{
+      font-size: 40px;
+    }
+    .contentLightText{
+      font-size: 20px;
+    }
+    .goHomeButton{
+      font-size: 16px;
+    }
+  }
+

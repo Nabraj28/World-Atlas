@@ -1,0 +1,11 @@
+.contactContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.copyrightContainer{
+    display: flex;
+    padding-left: 5rem;
+
+}

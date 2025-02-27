@@ -1,0 +1,15 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: ExoLight;
+  src: url('/fonts/Exo-Light.ttf');
+}
+
+@font-face {
+  font-family: ExoMedium;
+  src: url('/fonts/Exo-Medium.ttf');
+}

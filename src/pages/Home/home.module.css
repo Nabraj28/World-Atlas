@@ -1,0 +1,90 @@
+.mainContainer{
+    background-color: black;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    background-image: url('/map.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.backgroundImageContainer{
+    display: flex;
+    width: 75%;
+    padding: 4rem 0 4rem 0;
+}
+
+.textContainer{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: start;
+}
+
+.heroHeading{
+    font-family: 'ExoMedium',sans-serif;
+    font-size: 40px;
+}
+
+.heroContent{
+    font-family: 'ExoLight',sans-serif;
+    font-size: 18px;
+}
+
+.imageContainer{
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.styledButton{
+    background-color: #282828;
+    border: 1px solid white;
+    padding: 10px 20px 10px 20px;
+    color:white;
+    border-radius: 15px;
+    font-family: 'ExoLight',sans-serif;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .earthImage{
+    width: 90%;
+  }
+
+  @media (max-width:768px) {
+
+    .backgroundImageContainer{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 5rem;
+        width: 85%;
+    }
+
+    .textContainer, .imageContainer {
+        width: 100%;
+    }
+
+    .heroHeading{
+        font-size: 32px;
+    }
+
+    .heroContentBox{
+        gap: 1rem;
+    }
+
+    .heroContent, .styledButton{
+        font-size: 16px
+    }
+
+    .earthImage{
+        width: 100%;
+      }
+  }
