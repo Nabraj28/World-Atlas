@@ -1,14 +1,10 @@
-footer{
-    width: 100%;
-}
 .contactContainer{
-    width: 100%;
     display: grid;
     place-items: center;
     background-color: #28282B;
-    color: white;
+    color: #ffffff;
     font-family: var(--secondary-font);
-    padding: 1rem 0 1rem 0
+    padding: 1rem 0 1rem 0;
 }
 
 .contactContent{
@@ -17,9 +13,7 @@ footer{
     justify-content: space-between;
 }
 
-
 .copyRightContainer{
-    width: 100%;
     display: grid;
     place-items: center;
     background-color: #202020;
@@ -30,10 +24,32 @@ footer{
     padding: 1rem 0 1rem 0;
     font-family: var(--secondary-font);
     color: white;
+    font-size: var(--fs-small);
 }
 
-span{
+.copyRightContent span{
     color: rgb(95, 72, 248);
+}
+
+.icon{
+    width: 40px;
+    height: 40px;
+    color: rgb(95, 72, 248);
+
+}
+
+.contentBox{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contentBox h1{
+    font-size: var(--fs-normal);
+}
+
+.contentBox p{
+    font-size: var(--fs-small);
 }
 
 @media (max-width: 768px){
@@ -42,4 +58,22 @@ span{
         width: 85%;
         gap: 1rem;
     }
+
+    .copyRightContent{
+        width: 85%;
+    }
+
+    .icon{
+        width: 30px;
+        height: 30px;
+    }
+
+    .contentBox p, .copyRightContent{
+        font-size: 14px;
+    }
+
+    .contentBox h1{
+        font-size: 18px;
+    }
+   
 }
