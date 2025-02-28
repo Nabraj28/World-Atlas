@@ -1,3 +1,19 @@
+:root {
+  
+  --primary-color: #000000;
+  --secondary-color: #28282B;
+  --text-color: #ffffff;
+  --background-color: #000000;
+
+  --fs-small: 16px;
+  --fs-normal: 20px;
+  --fs-large: 30px;
+  --fs-heading: 40px;
+
+  --primary-font: 'ExoMedium', sans-serif;
+  --secondary-font: 'ExoLight', sans-serif;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -13,3 +29,4 @@
   font-family: ExoMedium;
   src: url('/fonts/Exo-Medium.ttf');
 }
+
