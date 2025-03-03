@@ -53,7 +53,12 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
+    cursor: pointer;
   }
+
+  .textContainer .navLink {
+    text-decoration: none;
+}
 
   .earthImage{
     width: 90%;
@@ -87,4 +92,25 @@
     .earthImage{
         width: 100%;
       }
+  }
+
+  @media (min-width: 768px) and (max-width:1240px){
+
+    .backgroundImageContainer{
+        width: 85%;
+    }
+    .heroHeading{
+        font-size: var(--fs-large);
+    }
+    .heroContent, .styledButton{
+        font-size: var(--fs-small);
+    }
+
+    .textContainer{
+        gap: 1rem;
+    }
+
+    .styledButton{
+        padding: 8px 16px 8px 16px;
+    }
   }

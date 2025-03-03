@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router';
 import styles from './home.module.css';
 import { IoIosArrowRoundForward } from "react-icons/io";
 
@@ -17,11 +18,13 @@ const Home = () => {
                         <br />
                         and filter through countries to find the details you want.
                     </p>
-                    <button className={styles.styledButton}>
-                        Start Exploring
-                        <IoIosArrowRoundForward size={25} />
+                    <NavLink className={styles.navLink} to={'/country'}>
+                        <button className={styles.styledButton}>
+                            Start Exploring
+                            <IoIosArrowRoundForward size={25} />
 
-                    </button>
+                        </button>
+                    </NavLink>
                 </div>
                 <div className={styles.imageContainer}>
                     <img src="/Earth.svg" alt="" className={styles.earthImage} />

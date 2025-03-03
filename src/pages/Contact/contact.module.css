@@ -1,0 +1,37 @@
+.contactContainer{
+    padding: 10rem 20px;
+    background-color: var(--primary-color);
+}
+
+.formWrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.formWrapper form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 40rem;
+}
+
+.formWrapper form input,
+.formWrapper form textarea {
+font-family: var(--secondary-font);
+background-color: #000;
+outline: none;
+color: #fff;
+padding: 15px 10px;
+border-radius: 5px;
+font-size: .9rem;
+border: .1rem solid rgba(255,255,255,.4);
+}
+
+.containerTitle{
+    text-align: center;
+    color:#fff;
+    font-family: var(--primary-font);
+    margin-bottom: 40px;
+    font-size: var(--fs-heading);
+}

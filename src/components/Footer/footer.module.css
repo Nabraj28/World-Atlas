@@ -52,7 +52,7 @@
     font-size: var(--fs-small);
 }
 
-@media (max-width: 768px){
+@media (max-width: 1240px){
     .contactContent{
         flex-direction: column;
         width: 85%;
