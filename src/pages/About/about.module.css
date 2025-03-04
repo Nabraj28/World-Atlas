@@ -1,0 +1,17 @@
+.aboutContainer{
+    background-color: var(--primary-color);
+    min-height: 50rem; /* To be deleted*/
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5rem 0;
+    gap: 3rem;
+}
+
+.contentContainer{
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
