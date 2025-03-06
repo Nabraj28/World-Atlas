@@ -50,11 +50,14 @@ ul{
     display: none;
 }
 
-
-@media (max-width: 768px){
+@media (max-width: 1240px){
     .navContentContainer{
         width: 85%;
     }
+}
+
+@media (max-width: 768px){
+    
     .webMenu{
         display: none;
     }

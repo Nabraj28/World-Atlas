@@ -7,7 +7,7 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    padding: 5rem 0 5rem 0;
+    padding: 5rem 0 0 0;
 }
 
 .backgroundImageContainer{
@@ -77,10 +77,6 @@
         width: 100%;
     }
 
-    .heroHeading{
-        font-size: 32px;
-    }
-
     .heroContentBox{
         gap: 1rem;
     }
@@ -94,7 +90,7 @@
       }
   }
 
-  @media (min-width: 768px) and (max-width:1240px){
+  @media (max-width:1240px){
 
     .backgroundImageContainer{
         width: 85%;

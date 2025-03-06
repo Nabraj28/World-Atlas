@@ -1,6 +1,5 @@
 .aboutContainer{
     background-color: var(--primary-color);
-    min-height: 50rem; /* To be deleted*/
     color: #fff;
     display: flex;
     align-items: center;
@@ -9,9 +8,52 @@
     gap: 3rem;
 }
 
+.aboutHeading{
+    font-size: var(--fs-heading);
+    font-family: var(--primary-font);
+    text-align: center;
+    max-width: 90%;
+}
 .contentContainer{
-    width: 75%;
+    max-width: 75%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
+}
+
+.contentContainer h1{
+    font-size: var(--fs-large);
+    font-family: var(--primary-font);
+}
+
+.contentContainer p{
+    color: #ffffff80;
+    font-family: var(--secondary-font);
+    font-size: var(--fs-small);
+    font-weight: 600;
+}
+
+.contentContainer span{
+    color: #fff;
+    font-weight: normal;
+}
+
+
+/* For Tablet */
+@media (max-width: 1240px){
+    .contentContainer{
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 85%;
+    }
+
+    .aboutHeading{
+        font-size: var(--fs-large);
+    }
+
+}
+/* For Mobile */
+@media (max-width: 768px){
+    .contentContainer{
+        grid-template-columns: repeat(1,1fr);
+    }
 }

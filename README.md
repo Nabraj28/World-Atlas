@@ -31,3 +31,4 @@ This project uses the following API(s):
 * React.js
 * React Router
 * Axios
+* React Hook Form
