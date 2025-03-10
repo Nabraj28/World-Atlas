@@ -17,7 +17,7 @@ npm run dev
 
 This project uses the following API(s):
 
-* Rest Countries: [https://restcountries.com/]
+* Rest Countries: [https://restfulcountries.com/]
 
 ## Design Reference
 

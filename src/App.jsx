@@ -4,10 +4,13 @@ import Home from './pages/Home/Home';
 import Country from './pages/Country/Country';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
-import Error from './pages/Error/Error';
+import Error from './pages/Error';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 
 function App() {
+
+  const queryClient = new QueryClient();
 
   const router = createBrowserRouter([{
     path: '/',
@@ -34,7 +37,9 @@ function App() {
   }])
 
   return (
-    <RouterProvider router={router}></RouterProvider>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}></RouterProvider>
+    </QueryClientProvider>
   )
 }
 

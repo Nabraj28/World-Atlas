@@ -1,4 +1,4 @@
-import Card from '../../components/Card/Card';
+import Card from '../../components/Card';
 import styles from './about.module.css';
 import ContinentsList from '../../data/continents';
 
