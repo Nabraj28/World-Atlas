@@ -6,13 +6,56 @@
     flex-direction: column;
     padding: 5rem 0;
     gap: 3rem;
+    
 }
-
-.filterSection{
-    background-color: gray;
+.filterSection {
+    background-color: inherit;
     width: 100%;
     max-width: 75%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
+
+.filterSection input {
+    flex: 1;
+    min-width: 150px;
+    max-width: 300px;
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    border: 1px solid white;
+    outline: none;
+    border-radius: 15px;
+    color: #fff;
+    font-family: var(--secondary-font);
+    font-size: var(--fs-small);
+}
+
+.filterSection select {
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    border: 1px solid white;
+    outline: none;
+    border-radius: 15px;
+    color: #fff;
+    font-family: var(--secondary-font);
+    font-size: var(--fs-small);
+}
+
+.arrowContainer {
+    display: flex;
+    gap: 5px;
+}
+
+.arrowIcon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
 
 .countrySection{
     width: 100%;
@@ -45,7 +88,7 @@
     font-weight: normal;
 }
 
-.countrySection button{
+.styledButton{
     background-color: #282828;
     border: 1px solid white;
     padding: 10px 20px 10px 20px;
@@ -61,12 +104,25 @@
     margin-top: 10px;
 }
 
-.countrySection button span{
+.styledButton:disabled {
+    opacity:.5;
+    cursor:not-allowed
+  }
+
+.styledButton span{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+    max-width: 75%;
+    width: 100%;
+}
 .arrowIcon{
     width: 40;
     height: 40;
@@ -75,6 +131,10 @@
 @media (max-width:1240px){
     .countrySection{
         grid-template-columns: repeat(2, 1fr);
+        max-width: 85%;
+    }
+
+    .filterSection{
         max-width: 85%;
     }
 }

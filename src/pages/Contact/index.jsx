@@ -1,12 +1,19 @@
+import usePostEmail from '@/data/hooks/Email/usePostEmail';
 import styles from './contact.module.css';
 import { useForm } from 'react-hook-form';
 
 const Contact = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const postEmail = usePostEmail();
 
     const onSubmit = (data) => {
-        console.log(data);
+        const updatedData = {
+            ...data,
+            access_key: data.access_key.trim()
+        };
+        postEmail.mutate(updatedData)
+
     }
 
     return (
@@ -15,6 +22,18 @@ const Contact = () => {
             <div className={styles.formWrapper}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className={styles.inputContainer}>
+                        <input
+                            type="hidden"
+                            name='access_key'
+                            value="c5a2473d-e061-4b8f-85d0-4df641e19531"
+                            {...register("access_key")}
+                        />
+                        <input
+                            type="checkbox"
+                            id=""
+                            className="hidden"
+                            style={{ display: "none" }}
+                            {...register("botcheck")}></input>
                         <input
                             type="text"
                             placeholder='Enter your name'

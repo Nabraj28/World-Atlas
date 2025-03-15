@@ -1,11 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { getCountryData } from "../../apiUtils";
 
-const useGetCountry = () => {
-    const endpoint = '/countries?per_page=10'
+const useGetCountry = (url) => {
+
+    const urlObj = url ? new URL(url) : null;
+    const pageValue = urlObj ? urlObj.searchParams.get('page') : null;
+    const endPoint = `/countries?${pageValue ? `page=${pageValue}&` : ''}per_page=8`;
+
     return useQuery({
-        queryKey: ['country-list'],
-        queryFn: () => getCountryData(endpoint)
+        queryKey: ['country-list', endPoint],
+        queryFn: () => getCountryData(endPoint)
     })
 }
 

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router';
 import styles from './home.module.css';
 import { IoIosArrowRoundForward } from "react-icons/io";
-import About from '../About/About';
+import About from '../About';
 
 const Home = () => {
     return (

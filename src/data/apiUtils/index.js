@@ -13,6 +13,12 @@ const getCountryData = async (endpoint) => {
     return response.data;
 }
 
+const postContactData = async (endpoint, data) => {
+    const response = await axios.post(endpoint, data);
+    return response.data;
+}
+
 export {
-    getCountryData
+    getCountryData,
+    postContactData
 }
