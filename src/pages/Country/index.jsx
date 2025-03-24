@@ -10,16 +10,7 @@ import { useState } from 'react';
 
 const Country = () => {
 
-    const [url, setUrl] = useState('');
-    const { data, isLoading, error, isFetching } = useGetCountry(url);
-
-    const handleNavigation = (direction) => {
-        if (direction === 'prev' && data.links.prev) {
-            setUrl(data.links.prev);
-        } else if (direction === 'next' && data.links.next) {
-            setUrl(data.links.next)
-        }
-    }
+    const { data, isLoading, error } = useGetCountry();
 
     if (error) return <Error />;
     if (isLoading) return <Loader />;
@@ -33,7 +24,7 @@ const Country = () => {
                     <p><IoArrowUpCircleOutline className={styles.arrowIcon} /></p>
                     <p><IoArrowDownCircleOutline className={styles.arrowIcon} /></p>
                 </div>
-                <select name="" id="">
+                <select>
                     <option defaultChecked value="">All</option>
                 </select>
             </section>
@@ -49,23 +40,6 @@ const Country = () => {
                     </Card>
                 ))}
             </section>
-            <div className={styles.pagination}>
-                <button
-                    className={styles.styledButton}
-                    onClick={() => handleNavigation('prev')}
-                    disabled={!data?.links?.prev || isFetching}
-                >
-                    Prev
-                </button>
-                <button
-                    className={styles.styledButton}
-                    onClick={() => handleNavigation('next')}
-                    disabled={!data?.links?.next || isFetching}
-                >
-                    Next
-                </button>
-            </div>
-            {isFetching && <div></div>}
         </main>
     )
 }

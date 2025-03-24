@@ -8,9 +8,3 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
-
-// TODO: Web3Forms Implementation ✅
-// TODO: Search Functionality Implementation
-// TODO: Continent Wise Country Display
-// TODO: Ascending & Descending Functionality Implementation
-// TODO: Country Page CSS Improvise

@@ -8,17 +8,17 @@ const axiosInstance = axios.create({
     }
 });
 
-const getCountryData = async (endpoint) => {
+const getData = async (endpoint) => {
     const response = await axiosInstance.get(endpoint);
     return response.data;
 }
 
-const postContactData = async (endpoint, data) => {
+const postData = async (endpoint, data) => {
     const response = await axios.post(endpoint, data);
     return response.data;
 }
 
 export {
-    getCountryData,
-    postContactData
+    getData,
+    postData
 }
