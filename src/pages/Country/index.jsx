@@ -6,30 +6,48 @@ import Error from '@/pages/Error';
 import Loader from '@/components/Loader';
 import { IoArrowUpCircleOutline, IoArrowDownCircleOutline } from "react-icons/io5";
 import { useState } from 'react';
+import useGetCountryByContinent from '@/data/hooks/Country/useGetCountryByContinent';
 
 
 const Country = () => {
 
-    const { data, isLoading, error } = useGetCountry();
+    const [continent, setContinent] = useState('');
+    const { data: countryData, isLoading, error } = useGetCountry();
+    const { data: continentData, isLoading: continentLoading, error: continentError } = useGetCountryByContinent(continent);
 
-    if (error) return <Error />;
-    if (isLoading) return <Loader />;
+    const handleContinentChange = (e) => {
+        setContinent(e.target.value);
+    };
 
+
+    if (error || continentError) return <Error />;
+    if (isLoading || continentLoading) return <Loader />;
+
+    const continentsList = [...new Set(
+        countryData.data.map(element => element.continent)
+            .filter(continent => continent != null)
+    )];
+
+    const Data = continent ? continentData?.data : countryData?.data;
 
     return (
         <main className={styles.countryContainer}>
             <section className={styles.filterSection}>
-                <input type="text" placeholder='Search' />
                 <div className={styles.arrowContainer}>
                     <p><IoArrowUpCircleOutline className={styles.arrowIcon} /></p>
                     <p><IoArrowDownCircleOutline className={styles.arrowIcon} /></p>
                 </div>
-                <select>
-                    <option defaultChecked value="">All</option>
+                <select onChange={handleContinentChange} value={continent}>
+                    <option value="">All</option>
+                    {continentsList.map((continent, index) => (
+                        <option key={index} value={continent}>
+                            {continent}
+                        </option>
+                    ))}
                 </select>
             </section>
             <section className={styles.countrySection}>
-                {data.data.map(({ name, population, continent, capital, href }, index) => (
+                {Data.map(({ name, population, continent, capital, href }, index) => (
                     <Card key={index}>
                         <img src={href.flag} alt="flag" />
                         <h1>{name}</h1>
