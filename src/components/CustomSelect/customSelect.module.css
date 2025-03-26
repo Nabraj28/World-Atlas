@@ -1,0 +1,47 @@
+.customSelectContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+}
+
+.selectContainer{
+    min-width: 200px;
+    background: var(--primary-color);
+    padding: 10px;
+    border-radius: 1rem;
+    font-family: var(--secondary-font);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid white;
+}
+
+.optionsContainer{
+    position: absolute;
+    top: 50px;
+    max-height: 250px;
+    min-width: 200px;
+    background-color: var(--primary-color);
+    border: 1px solid white;
+    z-index: 1;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    overflow-y: scroll;
+
+}
+
+.options{
+    font-family: var(--secondary-font);
+    padding: 5px 0;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(131, 131, 131);
+    }
+}
+
+.selected{
+    background-color: rgb(131, 131, 131);
+}

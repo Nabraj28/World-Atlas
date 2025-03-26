@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query"
 
 const useGetCountryByContinent = (continent) => {
 
-    const endpoint = `/countries?continent=${continent}`
+    const endpoint = `/countries${continent ? `?continent=${continent}` : ''}`
 
     return useQuery({
         queryKey: ['country-by-continent', continent],

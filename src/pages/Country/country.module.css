@@ -45,6 +45,10 @@
     font-size: var(--fs-small);
 }
 
+.filterSection select option{
+    font-family: var(--secondary-font);
+}
+
 .arrowContainer {
     display: flex;
     gap: 5px;

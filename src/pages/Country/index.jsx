@@ -4,47 +4,55 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import useGetCountry from '@/data/hooks/Country/useGetCountry';
 import Error from '@/pages/Error';
 import Loader from '@/components/Loader';
-import { IoArrowUpCircleOutline, IoArrowDownCircleOutline } from "react-icons/io5";
 import { useState } from 'react';
 import useGetCountryByContinent from '@/data/hooks/Country/useGetCountryByContinent';
-
+import CustomSelect from '@/components/CustomSelect';
+import useGetCountryByName from '@/data/hooks/Country/useGetCountryByName';
 
 const Country = () => {
-
     const [continent, setContinent] = useState('');
-    const { data: countryData, isLoading, error } = useGetCountry();
+    const [country, setCountry] = useState('');
+    const { data: countriesData, isLoading, error } = useGetCountry();
     const { data: continentData, isLoading: continentLoading, error: continentError } = useGetCountryByContinent(continent);
+    const { data: countryData, isLoading: countryLoading, error: countryError } = useGetCountryByName(country);
 
-    const handleContinentChange = (e) => {
-        setContinent(e.target.value);
-    };
-
-
-    if (error || continentError) return <Error />;
-    if (isLoading || continentLoading) return <Loader />;
+    if (error || continentError || countryError) return <Error />;
+    if (isLoading || continentLoading || countryLoading) return <Loader />;
 
     const continentsList = [...new Set(
-        countryData.data.map(element => element.continent)
-            .filter(continent => continent != null)
+        countriesData.data.map(element => element.continent).filter(continent => continent != null)
     )];
 
-    const Data = continent ? continentData?.data : countryData?.data;
+    const countrylist = continent
+        ? continentData.data.map(element => element.name)
+        : countriesData.data.map(element => element.name);
+
+    const Data = country
+        ? [countryData.data]
+        : continent
+            ? continentData.data
+            : countriesData.data;
+
+    const handleContinentChange = (newContinent) => {
+        setContinent(newContinent);
+        setCountry('');
+    };
 
     return (
         <main className={styles.countryContainer}>
             <section className={styles.filterSection}>
-                <div className={styles.arrowContainer}>
-                    <p><IoArrowUpCircleOutline className={styles.arrowIcon} /></p>
-                    <p><IoArrowDownCircleOutline className={styles.arrowIcon} /></p>
-                </div>
-                <select onChange={handleContinentChange} value={continent}>
-                    <option value="">All</option>
-                    {continentsList.map((continent, index) => (
-                        <option key={index} value={continent}>
-                            {continent}
-                        </option>
-                    ))}
-                </select>
+                <CustomSelect
+                    placeholder={'Select Country'}
+                    options={countrylist}
+                    onChange={setCountry}
+                    value={country}
+                />
+                <CustomSelect
+                    placeholder={'Select Continent'}
+                    options={continentsList}
+                    onChange={handleContinentChange}
+                    value={continent}
+                />
             </section>
             <section className={styles.countrySection}>
                 {Data.map(({ name, population, continent, capital, href }, index) => (
@@ -54,7 +62,9 @@ const Country = () => {
                         <p>Population:<span>{population}</span></p>
                         <p>Region:<span>{continent}</span></p>
                         <p>Capital:<span>{capital}</span></p>
-                        <button className={styles.styledButton}>Read More <span><IoIosArrowRoundForward size={25} /></span></button>
+                        <button className={styles.styledButton}>
+                            Read More <span><IoIosArrowRoundForward size={25} /></span>
+                        </button>
                     </Card>
                 ))}
             </section>
@@ -62,4 +72,4 @@ const Country = () => {
     )
 }
 
-export default Country
+export default Country;
