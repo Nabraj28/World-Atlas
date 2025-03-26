@@ -1,7 +1,7 @@
 .errorContainer{
     width: 100vw;
     height: 100vh;
-    background-image: url('./../../../public/Space.svg');
+    background-image: url('/public/Space.svg');
     background-size: cover;
     background-repeat: no-repeat;
     position: fixed;
