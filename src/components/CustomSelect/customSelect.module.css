@@ -6,7 +6,7 @@
 }
 
 .selectContainer{
-    min-width: 200px;
+    min-width: 160px;
     background: var(--primary-color);
     padding: 10px;
     border-radius: 1rem;
@@ -22,7 +22,7 @@
     position: absolute;
     top: 50px;
     max-height: 250px;
-    min-width: 200px;
+    min-width: 160px;
     background-color: var(--primary-color);
     border: 1px solid white;
     z-index: 1;

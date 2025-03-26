@@ -8,13 +8,19 @@ import { useState } from 'react';
 import useGetCountryByContinent from '@/data/hooks/Country/useGetCountryByContinent';
 import CustomSelect from '@/components/CustomSelect';
 import useGetCountryByName from '@/data/hooks/Country/useGetCountryByName';
+import { NavLink } from 'react-router';
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 const Country = () => {
+
     const [continent, setContinent] = useState('');
     const [country, setCountry] = useState('');
     const { data: countriesData, isLoading, error } = useGetCountry();
     const { data: continentData, isLoading: continentLoading, error: continentError } = useGetCountryByContinent(continent);
     const { data: countryData, isLoading: countryLoading, error: countryError } = useGetCountryByName(country);
+    const ITEMS_PER_PAGE = 12;
+    const [currentPage, setCurrentPage] = useState(1);
+
 
     if (error || continentError || countryError) return <Error />;
     if (isLoading || continentLoading || countryLoading) return <Loader />;
@@ -38,6 +44,19 @@ const Country = () => {
         setCountry('');
     };
 
+    const totalPages = Math.ceil(Data.length / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const paginatedData = Data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+    const handlePageChange = (direction) => {
+        if (direction === "next" && currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
+        }
+        if (direction === "prev" && currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
     return (
         <main className={styles.countryContainer}>
             <section className={styles.filterSection}>
@@ -55,19 +74,36 @@ const Country = () => {
                 />
             </section>
             <section className={styles.countrySection}>
-                {Data.map(({ name, population, continent, capital, href }, index) => (
+                {paginatedData.map(({ name, population, continent, capital, href }, index) => (
                     <Card key={index}>
                         <img src={href.flag} alt="flag" />
-                        <h1>{name}</h1>
+                        <h1>{name.length > 10 ? name.slice(0, 10) + "..." : name}</h1>
                         <p>Population:<span>{population}</span></p>
                         <p>Region:<span>{continent}</span></p>
                         <p>Capital:<span>{capital}</span></p>
-                        <button className={styles.styledButton}>
+                        <NavLink to={`/country/${name}`} className={styles.styledButton}>
                             Read More <span><IoIosArrowRoundForward size={25} /></span>
-                        </button>
+                        </NavLink>
                     </Card>
                 ))}
             </section>
+            <div className={styles.paginationContainer}>
+                <button
+                    disabled={currentPage === 1}
+                    className={styles.styledButton}
+                    onClick={() => handlePageChange("prev")}
+                >
+                    <MdChevronLeft />
+                </button>
+                <span className={styles.paginationInfo}>{currentPage} of {totalPages}</span>
+                <button
+                    disabled={currentPage === totalPages}
+                    className={styles.styledButton}
+                    onClick={() => handlePageChange("next")}
+                >
+                    <MdChevronRight />
+                </button>
+            </div>
         </main>
     )
 }

@@ -6,6 +6,7 @@ import Country from '@/pages/Country';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Error from './pages/Error';
+import CountryDetails from './pages/CountryDetails';
 
 
 function App() {
@@ -28,6 +29,10 @@ function App() {
       {
         path: '/country',
         element: <Country />
+      },
+      {
+        path: '/country/:name',
+        element: <CountryDetails />
       },
       {
         path: '/contact',

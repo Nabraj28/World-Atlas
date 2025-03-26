@@ -1,0 +1,68 @@
+.countryDetailsContainer{
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    min-height: 80vh;
+}
+
+.cardContainer{
+    width: 100%;
+    max-width: 75%;
+}
+
+.contentWrapper{
+    display: flex;
+}
+
+.imageContainer{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.contentContainer h2{
+    font-family: var(--primary-font);
+}
+
+.contentContainer p{
+    font-family: var(--secondary-font);
+    font-weight: 700;
+    color: rgb(120, 118, 118);
+}
+
+.contentContainer p span{
+    font-weight: normal;
+    color: white;
+}
+
+@media (max-width:768px){
+    .contentWrapper{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1240px){
+
+    .cardContainer{
+        max-width: 85%;
+    }
+    .imageContainer{
+        width: 100%;
+        padding: 50px 0;
+    }
+
+    .contentContainer{
+        gap:20px;
+    }
+}
