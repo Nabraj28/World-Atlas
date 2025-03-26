@@ -32,3 +32,4 @@ This project uses the following API(s):
 * React Router
 * Axios
 * React Hook Form
+* Tanstack Query
