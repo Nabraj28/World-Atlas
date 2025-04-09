@@ -37,6 +37,10 @@ function App() {
       {
         path: '/contact',
         element: <Contact />
+      },
+      {
+        path: '*',
+        element: <Error />
       }
     ]
   }])
