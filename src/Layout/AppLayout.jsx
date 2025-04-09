@@ -4,11 +4,11 @@ import Footer from "@/components/Footer";
 
 const AppLayout = () => {
     return (
-        <>
+        <main>
             <Header />
             <Outlet />
             <Footer />
-        </>
+        </main>
     )
 }
 
