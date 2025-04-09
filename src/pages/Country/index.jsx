@@ -78,9 +78,9 @@ const Country = () => {
                     <Card key={index}>
                         <img src={href.flag} alt="flag" />
                         <h1>{name.length > 10 ? name.slice(0, 10) + "..." : name}</h1>
-                        <p>Population:<span>{population}</span></p>
-                        <p>Region:<span>{continent}</span></p>
-                        <p>Capital:<span>{capital}</span></p>
+                        <p>Population:<span>{population.length > 8 ? population.slice(0, 8) : population}</span></p>
+                        <p>Region:<span>{continent.length > 12 ? continent.slice(0, 12) : continent}</span></p>
+                        <p>Capital:<span>{capital.length > 12 ? capital.slice(0, 12) : capital}</span></p>
                         <NavLink to={`/country/${name}`} className={styles.styledButton}>
                             Read More <span><IoIosArrowRoundForward size={25} /></span>
                         </NavLink>

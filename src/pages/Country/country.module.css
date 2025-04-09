@@ -131,6 +131,11 @@
     width: 100%;
 }
 
+@media (min-width: 1240px) {
+    .styledButton{
+        font-size: calc(1rem + .1vw);
+    }
+}
 
 @media (max-width:1240px){
     .countrySection{
