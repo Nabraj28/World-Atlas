@@ -34,21 +34,6 @@
     font-size: var(--fs-small);
 }
 
-.filterSection select {
-    padding: 8px 16px;
-    background-color: var(--primary-color);
-    border: 1px solid white;
-    outline: none;
-    border-radius: 15px;
-    color: #fff;
-    font-family: var(--secondary-font);
-    font-size: var(--fs-small);
-}
-
-.filterSection select option{
-    font-family: var(--secondary-font);
-}
-
 .paginationContainer{
     display: flex;
     width: 100%;
@@ -69,6 +54,24 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
+}
+
+.errorSection{
+    width: 100%;
+    max-width: 75%;
+    min-height: 70vh;
+}
+
+.errorSection p{
+    color: #ffffff;
+    font-family: var(--secondary-font);
+    font-size: var(--fs-small);
+    font-weight: 600;
+}
+
+.loadingSection {
+     width: 100%;
+    max-width: 75%;
 }
 
 .countrySection img{

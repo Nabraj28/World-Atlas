@@ -25,8 +25,8 @@ const Country = () => {
     const ITEMS_PER_PAGE = 12;
     const [currentPage, setCurrentPage] = useState(1);
 
-    if (error || searchError) return <Error />;
-    if (isLoading || searchLoading) return <Loader />;
+    if (error) return <Error />;
+    if (isLoading) return <Loader />;
 
     const totalPages = Math.ceil(dataToDisplay.length / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -41,15 +41,27 @@ const Country = () => {
         }
     };
 
-    // useEffect(()=>{
-    //     setCurrentPage(1)
-    // },[debouncedSearchTerm])
+    useEffect(()=>{
+        setCurrentPage(1)
+    },[debouncedSearchTerm])
 
     return (
         <main className={styles.countryContainer}>
             <section className={styles.filterSection}>
             <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
             </section>
+            {
+               searchError &&
+               <div className={styles.errorSection}>
+                <p>No Countries found</p>
+               </div> 
+            }
+            {
+                searchLoading &&
+                <div className={styles.loadingSection}>
+                    <Loader/>
+                </div>
+            }
             <section className={styles.countrySection}>
                 {paginatedData.map(({name, population, capital, continents, flags}, index) => (
                     <Card key={index}>
