@@ -25,6 +25,10 @@ const Country = () => {
     const ITEMS_PER_PAGE = 12;
     const [currentPage, setCurrentPage] = useState(1);
 
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [debouncedSearchTerm]);
+
     if (error) return <Error />;
     if (isLoading) return <Loader />;
 
@@ -41,9 +45,6 @@ const Country = () => {
         }
     };
 
-    useEffect(()=>{
-        setCurrentPage(1)
-    },[debouncedSearchTerm])
 
     return (
         <main className={styles.countryContainer}>
