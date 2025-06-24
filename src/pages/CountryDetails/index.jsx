@@ -1,29 +1,31 @@
 import Card from '@/components/Card';
 import styles from './countryDetails.module.css';
 import { useParams } from 'react-router';
-import useGetCountryByName from '@/data/hooks/Country/useGetCountryByName';
 import Loader from '@/components/Loader';
 import Error from '../Error';
+import useGetCountryDataByName from '@/data/hooks/Country/useGetCountryByName';
 
 const CountryDetails = () => {
 
-    const { name } = useParams();
-    const { data: countryData, isLoading, error } = useGetCountryByName(name);
+    const country = useParams();
+    console.log(country)
+    const { data: countryData, isLoading, error } = useGetCountryDataByName(country.name);
+
+    console.log(countryData)
 
     if (isLoading) return <Loader />
     if (error) return <Error />
 
     const {
-        name: countryName,
-        full_name,
-        continent,
+        name,
+        continents,
         capital,
         population,
-        size,
-        currency,
-        phone_code,
-        href
-    } = countryData.data;
+        area,
+        currencies,
+        idd,
+        flags
+    } = countryData[0];
 
     return (
         <div className={styles.countryDetailsContainer}>
@@ -31,17 +33,17 @@ const CountryDetails = () => {
                 <Card>
                     <div className={styles.contentWrapper}>
                         <div className={styles.imageContainer}>
-                            <img src={href.flag} alt="flag" />
+                            <img src={flags.png} alt="flag" />
                         </div>
                         <div className={styles.contentContainer}>
-                            <h2>{countryName}</h2>
-                            <p>Full Name: <span>{full_name}</span></p>
-                            <p>Continent: <span>{continent}</span></p>
-                            <p>Capital: <span>{capital}</span></p>
+                            <h2>{name.common}</h2>
+                            <p>Full Name: <span>{name.official}</span></p>
+                            <p>Continent: <span>{continents[0]}</span></p>
+                            <p>Capital: <span>{capital[0]}</span></p>
                             <p>Population:<span>{population}</span></p>
-                            <p>Size: <span>{size}</span></p>
-                            <p>Currency: <span>{currency}</span></p>
-                            <p>Phone Code: <span>{phone_code}</span></p>
+                            <p>Size: <span>{area}</span></p>
+                            <p>Currency: <span>{Object.values(currencies)[0].name}</span></p>
+                            <p>Phone Code: <span>{idd.root}{idd.suffixes[0]}</span></p>
                         </div>
                     </div>
                 </Card>

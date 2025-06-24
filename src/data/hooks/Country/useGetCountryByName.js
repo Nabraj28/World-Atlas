@@ -2,15 +2,14 @@ import { getData } from "@/data/apiUtils"
 import { useQuery } from "@tanstack/react-query"
 
 
-const useGetCountryByName = (country) => {
+const useGetCountryDataByName = (country) => {
 
-    const endpoint = `/countries${country ? `/${country}` : ''}
-    `
+    const endpoint = `/name/${country}`
 
     return useQuery({
-        queryKey: ['country-by-continent', country],
+        queryKey: ['country-by-name', country],
         queryFn: () => getData(endpoint)
     })
 }
 
-export default useGetCountryByName
+export default useGetCountryDataByName

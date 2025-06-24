@@ -3,7 +3,7 @@ import { getData } from "@/data/apiUtils";
 
 const useGetCountry = () => {
 
-    const endPoint = `/countries`
+    const endPoint = `/all/?fields=name,continents,capital,population,area,currencies,idd,flags`
 
     return useQuery({
         queryKey: ['country-list', endPoint],
